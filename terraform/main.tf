@@ -3,20 +3,16 @@ terraform {
 }
 
 provider "aws" {
-    verison = " -> 2.0"
-    region = "eu-west-2"
+  region = "eu-west-2"
 }
 
 resource "aws_s3_bucket" "cv-site" {
-    bucket = "cv.anhtran.co.uk"
-    acl    = "public-read"
+  bucket = "cv.anhtran.co.uk"
+  acl    = "public-read"
 
-    website {
-      index_document = "../website/index.html"
+  website {
+    index_document = "index.html"
 
-    }
+  }
 
-    versioning = {
-      enabled = true
-    }
 }

@@ -5,3 +5,6 @@
 # Terraform State
 terraform.tfstate
 terraform.tfstate.backup
+*.exe
+*.terraform
+*.tfstate
