@@ -1,5 +1,3 @@
-import git
-
 repo = git.Repo()
 staged_files = repo.index.diff("HEAD")
 print("=============== list modified files ===============")
