@@ -7,7 +7,7 @@ on:
 
 jobs:
   check:
-    name: Check changed website files
+    name: Check Changes in Website Files
     outputs:
       run_job: ${{ steps.check_files.outputs.run_job }}
     runs-on: ubuntu-latest
