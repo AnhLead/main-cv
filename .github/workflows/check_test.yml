@@ -20,6 +20,7 @@ jobs:
           python-version: 3.8
       - name: check modified files
         id: check_files
+        working-directory: ./github/scripts
         run: |
-          python ../scripts/check_website.py
+          python check_website.py
 
