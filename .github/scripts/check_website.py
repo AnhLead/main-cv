@@ -1,4 +1,4 @@
-from github import Github
+import git
 
 repo = git.Repo()
 staged_files = repo.index.diff("HEAD")
