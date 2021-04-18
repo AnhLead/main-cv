@@ -1,5 +1,5 @@
 terraform {
-  require version = " >= 0.12.24"
+  requires_version = ">= 0.12.24"
 }
 
 provider "aws" {
@@ -10,9 +10,14 @@ resource "aws_s3_bucket" "cv-site" {
   bucket = "cv.anhtran.co.uk"
   acl    = "public-read"
 
+  tags = {
+    Name = "CV Website"
+  }
+
   website {
     index_document = "index.html"
 
   }
 
 }
+
