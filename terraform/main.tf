@@ -1,3 +1,7 @@
+terraform {
+  require version = " >= 0.12.24"
+}
+
 provider "aws" {
     verison = " -> 2.0"
     region = "eu-west-2"

@@ -1,1 +1,7 @@
 *.hcl
+
+*.env
+
+# Terraform State
+terraform.tfstate
+terraform.tfstate.backup
