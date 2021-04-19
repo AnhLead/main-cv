@@ -9,4 +9,4 @@ for x in staged_files:
 
 
 for item in repo.index.diff(None):
-    print item.a_path
+    print (item.a_path)
