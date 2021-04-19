@@ -5,8 +5,12 @@ repo = Repo('../../../main-cv')
 staged_files = repo.index.diff("HEAD")
 print("=============== list modified files ===============")
 for x in staged_files:
-    print(x.a_path)
+    print(x)
 
 
 for item in repo.index.diff(None):
-    print (item.a_path)
+    print (itemh)
+
+contents = repo.get_contents("")
+for content_file in contents:
+    print(content_file)

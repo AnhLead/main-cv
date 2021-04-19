@@ -1,9 +1,9 @@
-name: Upload Website
+name: Testing Workflow
 
 on:
   push:
     branches:
-    - main
+    - main/testing
 
 jobs:
   check:
@@ -15,7 +15,7 @@ jobs:
             # Step 4: Checkout
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       # Step 1: Setup Pyton
       - name: setup python
         uses: actions/setup-python@v2
