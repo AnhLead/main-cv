@@ -7,3 +7,7 @@ print("=============== list modified files ===============")
 
 diff = repo.git.diff('HEAD~1..HEAD', name_only=True)
 print(diff)
+
+if ".github/website" in diff:
+    run_job = True
+print(run_job)
