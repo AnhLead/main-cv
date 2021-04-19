@@ -10,4 +10,7 @@ print(diff)
 
 if ".github/website" in diff:
     run_job = True
+else:
+    run_job = False
+    
 print(run_job)
