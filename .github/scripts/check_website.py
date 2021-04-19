@@ -10,7 +10,7 @@ for x in index.diff('HEAD'):
 for x in index.diff():
     print(x)
 
-for x in index.diff(none):
+for x in index.diff(None):
     print(x)
 
 hcommit = repo.head.commit
@@ -19,9 +19,6 @@ for diff_added in hcommit.diff('HEAD~1').iter_change_type('A'):
 
 for c in repo.index.diff(None):
     print(c)
-
-for b in repo.index.diff(None):
-    print(b)
 
 for a in repo.untracked_files:
     print(a)
