@@ -4,28 +4,8 @@ from git import Repo
 repo = Repo('../../../main-cv')
 index = repo.index
 print("=============== list modified files ===============")
-for x in index.diff('HEAD'):
-    print(x)
 
-for x in index.diff():
-    print(x)
+count_modified_files = len(repo.index.diff(None))
+count_staged_files = len(repo.index.diff("HEAD"))
+print count_modified_files, count_staged_files
 
-for x in index.diff(None):
-    print(x)
-
-hcommit = repo.head.commit
-for diff_added in hcommit.diff('HEAD~1').iter_change_type('A'):
-    print(diff_added)
-
-for c in repo.index.diff(None):
-    print(c)
-
-for a in repo.untracked_files:
-    print(a)
-
-for x in hcommit.diff():                  # diff tree against index
-    print(x)
-for x in hcommit.diff('HEAD~1'):          # diff tree against previous tree
-    print(x)
-for x in hcommit.diff(None): 
-    print(x)
