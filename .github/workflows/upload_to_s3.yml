@@ -7,7 +7,7 @@ on:
 
 jobs:
   check:
-    name: Check Changes in Website Files
+    name: Check
     outputs:
       run_job: ${{ steps.check_files.outputs.run_job }}
     runs-on: ubuntu-latest
@@ -16,8 +16,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
-
-      - name: check modified files
+      - name: Run bash
         id: check_files
         run: |
           echo "=============== list modified files ==============="
@@ -36,8 +35,6 @@ jobs:
               echo "::set-output name=run_job::true"
             fi
           done < files.txt
-
-
   deploy:
     name: Upload File to S3
     needs: check
