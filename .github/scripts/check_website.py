@@ -2,11 +2,10 @@ import os
 from git import Repo
 
 repo = Repo('../../../main-cv')
-staged_files = repo.index.diff('HEAD')
+index = repo.index
 print("=============== list modified files ===============")
-for x in staged_files:
+for x in index.diff('HEAD'):
     print(x)
 
 
-for item in repo.index.diff('HEAD'):
-    print (item)
+
