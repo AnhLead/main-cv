@@ -42,13 +42,10 @@ jobs:
     if: needs.check.outputs.run_job == 'true'
     runs-on: ubuntu-latest
     steps:
-    
       # Step 1: Checkout repository code 
     - name: Checkout Code 
       uses: actions/checkout@master
-    
       # Step 2: Upload Files to S3
-    - name: Upload
     - uses: anhlead/s3-sync-action-clone@master
       with:
         args: --acl public-read --follow-symlinks --delete 
