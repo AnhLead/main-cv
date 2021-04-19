@@ -26,9 +26,9 @@ for b in repo.index.diff(None):
 for a in repo.untracked_files:
     print(a)
 
-for x in hcommit.diff()                  # diff tree against index
+for x in hcommit.diff():                  # diff tree against index
     print(x)
-for x in hcommit.diff('HEAD~1')          # diff tree against previous tree
+for x in hcommit.diff('HEAD~1'):          # diff tree against previous tree
     print(x)
-for x in hcommit.diff(None) 
+for x in hcommit.diff(None): 
     print(x)
