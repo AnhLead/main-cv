@@ -11,4 +11,8 @@ print(count_modified_files, count_staged_files)
 
 staged_files = repo.index.diff('HEAD')
 for x in staged_files:
-    print(x.a_path) 
+    print(x) 
+
+diff = repo.git.diff('HEAD~1..HEAD', name_only=True)
+for x in diff:
+    print(x)
