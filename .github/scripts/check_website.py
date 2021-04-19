@@ -14,4 +14,4 @@ for x in staged_files:
     print(x) 
 
 diff = repo.git.diff('HEAD~1..HEAD', name_only=True)
-    print(diff)
+print(diff)
