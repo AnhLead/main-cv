@@ -11,6 +11,7 @@ for x in staged_files:
 for item in repo.index.diff(None):
     print (item)
 
-contents = get_contents("")
+repo = g.get_repo("PyGithub/PyGithub")
+contents = repo.get_contents("")
 for content_file in contents:
     print(content_file)
