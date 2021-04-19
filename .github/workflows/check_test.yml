@@ -12,6 +12,10 @@ jobs:
       run_job: ${{ steps.check_files.outputs.run_job }}
     runs-on: ubuntu-latest
     steps:
+            # Step 4: Checkout
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
       # Step 1: Setup Pyton
       - name: setup python
         uses: actions/setup-python@v2
@@ -29,7 +33,5 @@ jobs:
         working-directory: .github/scripts
         run: 
           python check_website.py
-      # Step 4: Checkout
-      - name: Checkout code
-        uses: actions/checkout@v2
+
 
