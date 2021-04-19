@@ -1,7 +1,7 @@
 import os
 from git import Repo
 
-repo = Repo(self.rorepo.working_tree_dir)
+repo = Repo(main-cv)
 staged_files = repo.index.diff("HEAD")
 print("=============== list modified files ===============")
 for x in staged_files:
