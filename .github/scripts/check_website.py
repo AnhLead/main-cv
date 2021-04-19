@@ -13,3 +13,4 @@ if ".github/website" in diff:
 else:
     run_job = False
 
+print(run_job)
