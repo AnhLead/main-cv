@@ -34,8 +34,7 @@ jobs:
         working-directory: .github/scripts
         run: 
           python check_website.py
-
-
+          
   # Job 2: Upload File to S3
   deploy:
     name: Upload File to S3
