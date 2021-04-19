@@ -32,14 +32,14 @@ jobs:
       - name: check modified files
         id: check_files
         working-directory: .github/scripts
-        run: 
+        run: |
           python check_website.py
-          
+
   # Job 2: Upload File to S3
   deploy:
     name: Upload File to S3
     needs: check
-    if: needs.check.outputs.run_job == 'True'
+    if: needs.check.outputs.run_job == 'true'
     runs-on: ubuntu-latest
     steps:
     
