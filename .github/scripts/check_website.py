@@ -9,8 +9,8 @@ for x in staged_files:
 
 
 for item in repo.index.diff(None):
-    print (itemh)
+    print (item)
 
-contents = repo.get_contents("")
+contents = get_contents("")
 for content_file in contents:
     print(content_file)
