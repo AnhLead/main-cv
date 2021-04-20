@@ -12,4 +12,4 @@ if "website/" in diff:
     run_job = True
 else:
     run_job = False
-    exit 1
+    exit(1)
