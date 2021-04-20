@@ -10,7 +10,8 @@ print(diff)
 
 if "website/" in diff:
     run_job = True
+    print('')
     exit
 else:
-    run_job = False
+    print('No files required for upload')
     exit(1)
