@@ -34,7 +34,27 @@ jobs:
         working-directory: .github/scripts
         run: |
           python check_website.py
-
+      # Step 2: Run Bash Script
+      - name: Run bash
+        id: check_files
+        run: |
+          echo "=============== list modified files ==============="
+          git diff --name-only HEAD^ HEAD
+          
+          echo "========== check paths of modified files =========="
+          git diff --name-only HEAD^ HEAD > files.txt
+          while IFS= read -r file
+          do
+            echo $file
+            if [[ $file != website/* ]]; then
+              echo "This modified file is not under the 'website' folder."
+              echo "::set-output name=run_job::false"
+              break
+            else
+              echo "::set-output name=run_job::true"
+            fi
+          done < files.txt
+          
   # Job 2: Upload File to S3
   deploy:
     name: Upload File to S3
