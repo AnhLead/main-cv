@@ -10,6 +10,7 @@ print(diff)
 
 if "website/" in diff:
     run_job = True
+    exit
 else:
     run_job = False
     exit(1)
