@@ -3,7 +3,7 @@ name: Upload Website file Changes
 on:
   push:
     branches:
-    - website
+    - main
 
 jobs:
   check:
