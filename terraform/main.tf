@@ -27,8 +27,8 @@ resource "aws_s3_bucket" "root_site_bucket" {
 
   policy = templatefile("templates/s3-policy.json", { bucket = var.bucket_name })
 
-# The CORS settings are required so that the content length of our files are sent to Cloudfront.
-# Without this will result in lower scores on Google PageSpeed and GTMetrix.
+  # The CORS settings are required so that the content length of our files are sent to Cloudfront.
+  # Without this will result in lower scores on Google PageSpeed and GTMetrix.
   cors_rule {
     allowed_headers = ["Authorization", "Content-Length"]
     allowed_methods = ["GET", "POST"]
@@ -211,3 +211,24 @@ resource "aws_route53_record" "www-a" {
   }
 }
 
+resource "aws_route53_record" "mx_soho" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = var.domain_name
+  type    = "MX"
+  ttl     = "300"
+  records = [
+    "10 mx.zoho.eu",
+    "20 mx2.zoho.eu",
+    "50 mx3.zoho.eu",
+  ]
+}
+
+resource "aws_route53_record" "txt_soho_spf" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = var.domain_name
+  type    = "TXT"
+  records = [
+    "v=spf1 include:zoho.eu ~all",
+  ]
+  ttl = 300
+}
