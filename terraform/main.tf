@@ -27,12 +27,13 @@ resource "aws_s3_bucket" "root_site_bucket" {
 
   policy = templatefile("templates/s3-policy.json", { bucket = var.bucket_name })
 
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
-    }
+# The CORS settings are required so that the content length of our files are sent to Cloudfront.
+# Without this will result in lower scores on Google PageSpeed and GTMetrix.
+  cors_rule {
+    allowed_headers = ["Authorization", "Content-Length"]
+    allowed_methods = ["GET", "POST"]
+    allowed_origins = ["https://www.${var.domain_name}"]
+    max_age_seconds = 3000
   }
 
   website {

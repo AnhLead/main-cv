@@ -3,8 +3,8 @@
 *.env
 
 # Terraform State
-terraform.tfstate
-terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
 *.exe
 *.terraform
 *.tfstate

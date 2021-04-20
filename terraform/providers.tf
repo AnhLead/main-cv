@@ -8,11 +8,6 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket = "anhtran.co.uk-terraform"
-    key    = "terraform.tfstate"
-    region = "eu-west-2"
-  }
 }
 
 provider "aws" {
