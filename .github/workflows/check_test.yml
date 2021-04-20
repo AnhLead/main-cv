@@ -40,7 +40,7 @@ jobs:
   deploy:
     name: Upload File to S3
     needs: check
-    if: needs.check.outputs.run_job == 'False'
+    if: pythong varaible = true
     runs-on: ubuntu-latest
     steps:
       # Step 1: Checkout repository code 
