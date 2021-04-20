@@ -1,4 +1,4 @@
-name: Testing Workflow
+name: Upload Website file Changes
 
 on:
   push:
