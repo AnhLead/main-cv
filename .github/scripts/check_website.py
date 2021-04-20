@@ -7,11 +7,11 @@ print("=============== list modified files ===============")
 
 diff = repo.git.diff('HEAD~1..HEAD', name_only=True)
 print(diff)
+print('\n')
 
 if "website/" in diff:
-    run_job = True
     print('\n')
-    exit
+    exit #exit return 0 == Success
 else:
     print('No files required for upload \n')
-    exit(1)
+    exit(1) #exit return 1 == Failed

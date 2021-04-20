@@ -1,60 +1,51 @@
-name: Upload Website
+name: Testing Workflow
 
 on:
   push:
     branches:
-    - main
+    - website
 
 jobs:
-  # Job 1: Check Changes
   check:
-    name: Check
+    name: Check Changes in Website Files
     outputs:
       run_job: ${{ steps.check_files.outputs.run_job }}
     runs-on: ubuntu-latest
     steps:
-      
-      # Step 1: Checkout repository code
+            # Step 4: Checkout
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
-      
-      # Step 2: Run Bash Script
-      - name: Run bash
-        id: check_files
+      # Step 1: Setup Pyton
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      # Step 2: Install dependencies
+      - name: Install dependencies
         run: |
-          echo "=============== list modified files ==============="
-          git diff --name-only HEAD^ HEAD
-          
-          echo "========== check paths of modified files =========="
-          git diff --name-only HEAD^ HEAD > files.txt
-          while IFS= read -r file
-          do
-            echo $file
-            if [[ $file != website/* ]]; then
-              echo "This modified file is not under the 'website' folder."
-              echo "::set-output name=run_job::false"
-              break
-            else
-              echo "::set-output name=run_job::true"
-            fi
-          done < files.txt
-          
+          python -m pip install --upgrade pip
+          pip install GitPython
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      # Step 3: Run python script
+      - name: Check if website file has changed
+        id: check_files
+        working-directory: .github/scripts
+        run: |
+          python check_website.py
+
+
   # Job 2: Upload File to S3
   deploy:
     name: Upload File to S3
     needs: check
-    if: needs.check.outputs.run_job == 'true'
     runs-on: ubuntu-latest
     steps:
-    
       # Step 1: Checkout repository code 
     - name: Checkout Code 
       uses: actions/checkout@master
-    
       # Step 2: Upload Files to S3
-    - name: Upload
     - uses: anhlead/s3-sync-action-clone@master
       with:
         args: --acl public-read --follow-symlinks --delete 
