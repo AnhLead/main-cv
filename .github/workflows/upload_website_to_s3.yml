@@ -38,7 +38,7 @@ jobs:
 
   # Job 2: Upload File to S3 Secure
   deploy:
-    name: Upload File to S3
+    name: Upload File to S3 WWW
     needs: check
     runs-on: ubuntu-latest
     steps:
@@ -59,7 +59,7 @@ jobs:
         
   # Job 3: Upload File to S3 Non-Secure
   deploy2:
-    name: Upload File to S3
+    name: Upload File to S3 Non WWW
     needs: check
     runs-on: ubuntu-latest
     steps:
