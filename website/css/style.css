@@ -215,9 +215,7 @@ main {
     border: 1px dotted var(--danger);
 }
 section.about .content {
-    display: flex;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 16rem;
+
 }
 section.about .content h2 {
     color: var(--info);
@@ -241,9 +239,7 @@ section.work_expereince .content {
 }
 
 section.work_expereince .content .center{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: ". .";
+
 }
 
 section.work_expereince .content .center .heading {
@@ -271,7 +267,6 @@ section.work_expereince .content .center p.center {
 section.work_expereinces .content .center .item {
     margin-bottom: 2.6rem;
     margin-left: 15px;
-    position: flex;
 }
 
 section.work_expereince .content .center .timeline__wrapper {
