@@ -36,7 +36,7 @@ jobs:
           python check_website.py
       # Step 2: Run Bash Script
       - name: Run bash
-        id: check_files
+        id: check_filess
         run: |
           echo "=============== list modified files ==============="
           git diff --name-only HEAD^ HEAD
@@ -54,7 +54,7 @@ jobs:
               echo "::set-output name=run_job::true"
             fi
           done < files.txt
-          
+
   # Job 2: Upload File to S3
   deploy:
     name: Upload File to S3
