@@ -1,7 +1,15 @@
-Website Link: http://cv.anhtran.co.uk.s3-website.eu-west-2.amazonaws.com/
+Website Link: http://www.anhtran.co.uk
 
-TODO: 
+COMPLETED: 
+    - Website
     - CloudFront
+    - S3 Bucket
+    - Route53
     - HTTPS
+    - Partial CI/CD for frontend
+    -
+TODO: 
     - Javascript visitor Counter
     - DynamoDB backend API for counter
+    - Lambda for API calls
+    - Test and Further CI/CD
