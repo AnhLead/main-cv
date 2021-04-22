@@ -3,26 +3,26 @@ Website Link: http://www.anhtran.co.uk
 
 COMPLETED: 
 
-    - Website
+    - Set up Website
     
-    - CloudFront
+    - Set up CloudFront
     
-    - S3 Bucket
+    - Set up S3 Bucket
     
-    - Route53
+    - Set up Route53
     
-    - HTTPS
+    - Set up HTTPS - Redirect un secure link to HTTPS://www.
     
     - Partial CI/CD for frontend
     
-    
+    - Deployed Database via DynamoDB + Terraform
     
 TODO: 
     
-    - Javascript visitor Counter
+    - Create Javascript visitor Counter
     
-    - DynamoDB backend API for counter
+    - Deploy Lambda 
     
-    - Lambda for API calls
-    
+    - Set up API Gateway
+
     - Test and Further CI/CD
