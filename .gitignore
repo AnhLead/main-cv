@@ -10,3 +10,4 @@ terraform.tfstate.backup
 *.tfstate
 .testing
 *.tfvars
+*.vs/
