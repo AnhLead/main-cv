@@ -1,0 +1,3 @@
+bucket_name = "adt-counter-s3-bucket"
+lambda_name = "adt_lambda_counter"
+api_name    = "adt-counter-api"
