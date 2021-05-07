@@ -1,5 +1,6 @@
 terraform {
   required_version = ">= 0.12.24"
+
 }
 
 # AWS Region
@@ -16,10 +17,10 @@ data "archive_file" "init" {
 
 # Create S3 Bucket
 resource "aws_s3_bucket" "counter_bucket" {
-  bucket = "adt-counter-s3-bucket"
-  acl    = "private"
+  bucket = var.bucket_name
+  acl    = "public-read"
   tags = {
-    Name = "adt-counter-s3-bucket"
+    Name = var.bucket_name
   }
 }
 
@@ -45,9 +46,9 @@ resource "aws_iam_role_policy" "lambda_policy" {
 
 
 # AWS Lambda functions
-resource "aws_lambda_function" "test_lambda" {
+resource "aws_lambda_function" "adt_lambda_counter" {
   function_name = "counter"
-  s3_bucket     = "adt-counter-s3-bucket"
+  s3_bucket     = var.bucket_name
   s3_key        = "counter.zip"
   role          = aws_iam_role.lambda_role.arn
   handler       = "counter.handler"

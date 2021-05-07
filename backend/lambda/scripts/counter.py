@@ -20,14 +20,32 @@ class DecimalEncoder(json.JSONEncoder):
 website = 'anhtran.co.uk'
 counter = 0  
 
-update = c.update_item(
-    Key={
-        'Website': website,
-        'Counter': counter
-    },
-    UpdateExpression = 'SET UpdatedCounter = UpdatedCounter + :val',
-    ExpressionAttributeValues={
-        ':val' : decimal.Decimal(1) 
-    },
-    ReturnValues = "UPDATED_NEW"
-)
+def lambda_handler(event, context):
+    try:
+        print("event ->" + str(event))
+        payload = json.loads(event["body"])
+        print("payload ->" + str(payload))
+        response = c.update_item(
+            Key={
+            'Website': website,
+            'Counter': counter
+            },
+        UpdateExpression = 'SET UpdatedCounter = UpdatedCounter + :val',
+        ExpressionAttributeValues={
+            ':val' : decimal.Decimal(1) 
+        },
+        ReturnValues = "UPDATED_NEW"
+    )
+    return {
+        'statusCode': 201,
+        'body': '{ "counter" : UpdatedCounter }'
+    }
+    except Exception as e:
+    logging.error(e)
+    return {
+        'statusCode' : 500,
+        'body' : '{"status":"Server error"}'
+    }
+    print("Counter succeeded:")
+    print(json.dumps(response, indent=4, cls=DecimalEncoder))
+			

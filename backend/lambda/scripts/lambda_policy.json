@@ -6,6 +6,13 @@
         "Action": "logs:*",
         "Effect": "Allow",
         "Resource": "*"
+      },
+      {
+        "Action": [
+          "dynamodb:PutItem"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
       }
     ]
   }
