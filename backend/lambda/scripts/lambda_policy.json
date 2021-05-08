@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "adtcounterlambda",
+        "Action": "logs:*",
+        "Effect": "Allow",
+        "Resource": "*"
+      },
+      {
+        "Action": [
+          "dynamodb:PutItem"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      }
+    ]
+  }

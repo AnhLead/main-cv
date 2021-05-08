@@ -1,39 +1,13 @@
+variable "domain_name" {
+  type        = string
+  description = "The domain name for the website."
+}
 
 variable "bucket_name" {
-  description = "S3 bucket name"
   type        = string
+  description = "The name of the bucket without the www. prefix. Normally domain_name."
 }
 
-variable "region" {
-  description = "AWS Region"
-  type        = string
-}
-
-variable "domain_name" {
-  description = "Domain Name"
-  type        = string
-}
-
-variable "name" {
-  description = "Name of the application"
-}
-
-variable "route53_zone_id" {
-  description = "Route 53 zone id"
-}
-
-variable "environment" {
-  description = "Environment [dev, pre, prod]"
-}
-variable "ssl_arn" {
-  description = "Arn of the ssl certificate"
-}
-
-variable "url" {
-  description = "Url of the app"
-}
-
-variable "cloudfront_origin_path" {
-  description = "Root path in the bucket for the cloudfront"
-  default     = ""
+variable "common_tags" {
+  description = "Common tags you want applied to all components."
 }
